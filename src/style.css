@@ -94,3 +94,20 @@ h6{
     text-transform: uppercase;
     letter-spacing: .2rem;
 }
+
+.card{
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    top:0;
+    right:0;
+
+    background-color:transparent;
+    border:none;
+}
+
+.close:focus{
+    outline:none;
+}

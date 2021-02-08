@@ -7,7 +7,7 @@ import FavoriteList from "./FavoriteList";
 
 //data = 輸入關鍵字後顯示的五個data
 //renderedData = 顯示在主畫面的data
-//favoriteData = 顯示在favorite list上的data
+//favoriteData = 顯示在favorite list上的data,是一個array
 
 const App = () => {
     //顯示在主畫面的data
@@ -26,7 +26,7 @@ const App = () => {
                     </div>
                     <div className="col-3 favorite mb-3 rounded">
                         <p className="list-title text-center mt-3 mb-3">Favorite List</p>
-                        <FavoriteList favoriteData={favoriteData}/>
+                        <FavoriteList favoriteData={favoriteData} setFavoriteData={setFavoriteData}/>
                     </div>
                     <div className="col-1"></div>
                 </div>
