@@ -1,0 +1,96 @@
+*,
+*::befor,
+*::after{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to right, rgba(128,128,128,.2),rgba(128,128,128,.2)),url(./bg.jpg);
+    background-size: cover;
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+.title{
+    width:90vw;
+    text-align:center;
+    text-transform: uppercase;
+}
+
+.container{
+    /* background-color:rgba(250, 192, 0, 0.9); */
+    background-color:rgba(255,255,255, 0.9);
+    min-height:80vh;
+    width:75%;
+}
+
+.dropdown{
+    width:50%;
+    margin: 0 auto 3rem auto;
+}
+
+.option{
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.option img{
+    width:50px;
+    margin-right:10px;
+    display: inlne-block;
+}
+
+.option h1{
+    font-size:20px;
+    display:inline-block;
+}
+
+.pic{
+    width:30%;
+    margin: 0 auto;
+}
+
+.btn{
+    margin-right: 2rem;
+}
+
+.btn-warning{
+    color:white;
+}
+
+.favorite{
+    min-height:25rem;
+    background-color:lightyellow;
+    margin-left:2rem;
+}
+
+.main-col{
+    min-height: 25rem;
+    border-right:1px solid lightgrey;
+}
+
+.favorite-image-box{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    padding: 0;
+}
+
+.favorite-image{
+    width:70%;
+    margin-left: 2rem;
+}
+
+h6{
+    display:block;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.list-title{
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
