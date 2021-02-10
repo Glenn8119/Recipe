@@ -9,6 +9,7 @@
 body{
     background: linear-gradient(to right, rgba(128,128,128,.2),rgba(128,128,128,.2)),url(./bg.jpg);
     background-size: cover;
+    background-position: top;
     font-family: 'Yusei Magic', sans-serif;
 }
 
@@ -97,6 +98,7 @@ h6{
 
 .card{
     position:relative;
+    cursor:pointer;
 }
 
 .close{

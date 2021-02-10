@@ -26,7 +26,7 @@ const App = () => {
                     </div>
                     <div className="col-3 favorite mb-3 rounded">
                         <p className="list-title text-center mt-3 mb-3">Favorite List</p>
-                        <FavoriteList favoriteData={favoriteData} setFavoriteData={setFavoriteData}/>
+                        <FavoriteList favoriteData={favoriteData} setFavoriteData={setFavoriteData} setRenderedData={setRenderedData}/>
                     </div>
                     <div className="col-1"></div>
                 </div>
