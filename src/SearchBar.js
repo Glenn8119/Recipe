@@ -3,8 +3,8 @@ import axios from "axios";
 import RenderSelection from "./RenderSelection";
 
 const SearchBar = ({ setSearchTerm , setRenderedData}) => {
-    const [term, setTerm] = useState("");
-    const [debouncedTerm, setDebouncedTerm] = useState(term);
+    const [term, setTerm] = useState("");//input的值
+    const [debouncedTerm, setDebouncedTerm] = useState(term);//一秒後input的值,用來減少get request的次數
     const [data, setData] = useState([]);
     const refMenu = useRef();
     const refDropdown = useRef();
@@ -20,6 +20,7 @@ const SearchBar = ({ setSearchTerm , setRenderedData}) => {
         }
     })
 
+    //在0.5秒內改變input的值都不會request
     useEffect(() => {
         let timeoutID = setTimeout(() => {
             setDebouncedTerm(term);
@@ -31,7 +32,7 @@ const SearchBar = ({ setSearchTerm , setRenderedData}) => {
     }, [term])
 
     useEffect(() => {
-        const search = async (name, ref) => {
+        const search = async (name) => {
             const res = await axios.get("https://api.edamam.com/search", {
                 params: {
                     q: name,
@@ -41,17 +42,20 @@ const SearchBar = ({ setSearchTerm , setRenderedData}) => {
                     to: "5"
                 }
             })
+            //如果查詢有結果則將結果設定為data
             if (res.data.hits.length !== 0) {
                 setData(res.data.hits);
                 //雖然data有傳給renderselection, 但是沒有show, 所以要加下面這行
                 refMenu.current.classList.add("show");
-            } else {
+            } 
+            //起始畫面/查詢沒有結果/將input改成空白值 這三個狀況就收合dropdown
+            else {
                 setData([]);
                 //如果沒有下面這行把selection隱藏起來, 會跑出空的selection
                 refMenu.current.classList.remove("show");
             }
         }
-        search(debouncedTerm, refMenu);
+        search(debouncedTerm);
     }, [debouncedTerm])
 
     const onSubmit = (e) =>{

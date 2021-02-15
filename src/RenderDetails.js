@@ -16,7 +16,7 @@ const RenderDetails = ({ renderedData, setFavoriteData, favoriteData }) => {
         window.open(detailLink);
     }
 
-    //點擊按鈕時會檢查list是不是已經有這個recipe, 如果已經有就不加入收藏
+    //點擊按鈕時會檢查list是不是已經有這個recipe, 如果已經有就不加入收藏(FavoriteList)
     const clickBtn = () =>{
         //不用push的原因是push返回的值不會是新陣列, 而是一個數字
         let newItems = favoriteData.concat(renderedData);

@@ -6,7 +6,7 @@ import RenderDetails from "./RenderDetails";
 import FavoriteList from "./FavoriteList";
 
 //data = 輸入關鍵字後顯示的五個data
-//renderedData = 顯示在主畫面的data
+//renderedData = 顯示在主畫面的data,是一個array
 //favoriteData = 顯示在favorite list上的data,是一個array
 
 const App = () => {

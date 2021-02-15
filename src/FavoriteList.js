@@ -12,16 +12,16 @@ const FavoriteList = ({ favoriteData, setFavoriteData, setRenderedData }) => {
 
         const rmv = (e) => {
             e.stopPropagation();
+            //因為splice會改變array的值, 不能直接用在state值上面
             let copyArr = [...favoriteData];
             copyArr.splice(index, 1);
             setFavoriteData(copyArr);
         }
 
+        //點擊favorite list裡面的項目時(非x和button時)會在主畫面顯示該食譜
         const reShow = (e) => {
             if (!refDetail.current.contains(e.target) && !refClose.current.contains(e.target)) {
                 setRenderedData(item);
-            } else {
-                return;
             }
         }
 
