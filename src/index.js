@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style/style.css";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import SearchBar from "./components/SearchBar";
