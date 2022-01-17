@@ -4,13 +4,13 @@ import React, { Fragment } from "react";
 const RenderDetails = ({ renderedData, setFavoriteData, favoriteData }) => {
     const foodImg = renderedData.image;
     const name = renderedData.label;
-    const ingredients = renderedData.ingredientLines === undefined ?
-        null :
+    const ingredients = renderedData.ingredientLines ?
         renderedData.ingredientLines.map((ingredient,index) => {
             return (
-                <p key={index}>． {ingredient}</p>
+                <p key={index}>{`． ${ingredient}`}</p>
             )
-        });
+        }):
+        null;
     const detailLink = renderedData.shareAs;
     const newWindow = () =>{
         window.open(detailLink);

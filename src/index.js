@@ -1,9 +1,9 @@
 import "./style.css";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import SearchBar from "./SearchBar";
-import RenderDetails from "./RenderDetails";
-import FavoriteList from "./FavoriteList";
+import SearchBar from "./components/SearchBar";
+import RenderDetails from "./components/RenderDetails";
+import FavoriteList from "./components/FavoriteList";
 
 //data = 輸入關鍵字後顯示的五個data
 //renderedData = 顯示在主畫面的data,是一個array

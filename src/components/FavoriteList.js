@@ -5,11 +5,13 @@ const FavoriteList = ({ favoriteData, setFavoriteData, setRenderedData }) => {
     const refClose = useRef();
 
     const favoriteList = favoriteData.map((item, index) => {
+        //點擊Detail用新視窗開啟網頁
         const newWindow = (e) => {
             e.stopPropagation();
             window.open(item.shareAs);
         }
 
+        //點擊x取消favorite list裡面的item
         const rmv = (e) => {
             e.stopPropagation();
             //因為splice會改變array的值, 不能直接用在state值上面

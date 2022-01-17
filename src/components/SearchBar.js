@@ -2,9 +2,10 @@ import React, { useEffect, useState, useRef, Fragment } from "react";
 import axios from "axios";
 import RenderSelection from "./RenderSelection";
 
-const SearchBar = ({ setSearchTerm , setRenderedData}) => {
-    const [term, setTerm] = useState("");//input的值
-    const [debouncedTerm, setDebouncedTerm] = useState(term);//一秒後input的值,用來減少get request的次數
+const SearchBar = ({ setRenderedData }) => {
+    const [term, setTerm] = useState("");
+    //一秒後input的值,用來減少get request的次數
+    const [debouncedTerm, setDebouncedTerm] = useState(term);
     const [data, setData] = useState([]);
     const refMenu = useRef();
     const refDropdown = useRef();
@@ -15,7 +16,7 @@ const SearchBar = ({ setSearchTerm , setRenderedData}) => {
 
     //點擊dropdown以外的任何地方都要收合dropdown
     document.addEventListener("click", (e) => {
-        if(!refDropdown.current.contains(e.target)){
+        if (!refDropdown.current.contains(e.target)) {
             refMenu.current.classList.remove("show");
         }
     })
@@ -47,7 +48,7 @@ const SearchBar = ({ setSearchTerm , setRenderedData}) => {
                 setData(res.data.hits);
                 //雖然data有傳給renderselection, 但是沒有show, 所以要加下面這行
                 refMenu.current.classList.add("show");
-            } 
+            }
             //起始畫面/查詢沒有結果/將input改成空白值 這三個狀況就收合dropdown
             else {
                 setData([]);
@@ -58,7 +59,7 @@ const SearchBar = ({ setSearchTerm , setRenderedData}) => {
         search(debouncedTerm);
     }, [debouncedTerm])
 
-    const onSubmit = (e) =>{
+    const onSubmit = (e) => {
         e.preventDefault();
     }
 
@@ -73,7 +74,7 @@ const SearchBar = ({ setSearchTerm , setRenderedData}) => {
                     placeholder="Search For a Food..."
                 />
                 <div className="dropdown-menu" ref={refMenu}>
-                    <RenderSelection data={data} deleteTerm={deleteTerm} setSearchTerm={setSearchTerm} setRenderedData={setRenderedData}/>
+                    <RenderSelection data={data} deleteTerm={deleteTerm} setRenderedData={setRenderedData} />
                 </div>
             </form>
         </Fragment>
